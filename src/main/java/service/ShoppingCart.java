@@ -27,14 +27,11 @@ public class ShoppingCart {
         return total;
     }
 
-    public double calculateTotalVegetarianPriceWithDiscount() {
+    public double calculateTotalVegetarianPriceWithoutDiscount() {
         double total = 0.0;
         for (Food product : products) {
             if (product.isVegetarian()) {
-                double discountPercent = product.getDiscount();
-                double priceWithoutDiscount = product.getAmount() * product.getPrice();
-                double priceWithDiscount = priceWithoutDiscount * (1 - discountPercent / 100);
-                total += priceWithDiscount;
+                total += product.getAmount() * product.getPrice();
             }
         }
         return total;
